@@ -1,0 +1,33 @@
+{% extends "ProyectoWebApp/base.html" %}
+
+{% load static %}
+
+{% block content %}
+<div class="contenedorFormulario">
+
+    {% include "pdf_generator/distribución_etaria.html" %}
+    {% include "pdf_generator/Proyecto Final - análisis por día y destino.html" %}
+    {% include "pdf_generator/Proyecto Final - análisis de transferidos.html" %}
+
+
+        <!-- {% for post in posts %}
+        
+            <p><h1 style="color: orange; margin: 20px;">{{post.titulo}}</h1></p>
+            
+            {% if post.contenido %}
+            <h5 style="color: white; margin: 30px;">{{post.contenido}}</h5>
+            {% endif %}
+                
+            {% if post.imagen %}
+            <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="{{post.imagen.url}}" >
+            {% endif %}
+        
+            {% if post.descripcion %}
+            <h7 style="color: white; margin: 30px;">{{post.descripcion}}</h7>
+            {% endif %}
+
+        {% endfor %} -->
+    
+
+</div>
+{% endblock %}

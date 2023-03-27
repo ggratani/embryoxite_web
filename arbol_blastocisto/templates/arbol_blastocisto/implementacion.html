@@ -1,0 +1,147 @@
+{% extends "arbol_blastocisto/base.html" %}
+
+{% load static %}
+
+{% load crispy_forms_tags %}
+
+{% block content3 %}
+
+<div class = "contenedorFormulario">
+  <!-- <style>
+    table, th, td {
+      border:1px solid black;
+    }
+  </style> -->
+  
+  <form action="" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <table style="color: white; margin: 20px auto;">
+      <tr>
+        <th colspan="3">
+          <h3><span class="section-heading-lower" style="background-color: rgb(23, 160, 220); border-radius: 5px;">Ingresar datos:</span></h3>
+        </th>
+      </tr>
+      <tr>
+        <th>
+          {{miformulario.Edad|as_crispy_field}}
+        </th>
+        <th>
+          {{miformulario.Ovulo_donante|as_crispy_field}}
+        </th>
+        <th>
+          {{miformulario.Semen_donante|as_crispy_field}}
+        </th>
+      </tr>
+      <tr>
+        <th colspan="3">
+          <h4><span class="section-heading-lower" style="background-color: rgb(23, 160, 220); border-radius: 5px;">Información día 2:</span></h4>
+        </th>
+      </tr>
+      <tr>
+        <th>
+          {{miformulario.Celulas_2|as_crispy_field}}
+        </th>
+        <th>
+          {{miformulario.Fragmentos_2|as_crispy_field}}
+        </th>
+        <th>
+          {{miformulario.Simetria_2|as_crispy_field}}
+        </th>
+      </tr>
+      <tr>
+        <th colspan="3">
+          <h4><span class="section-heading-lower" style="background-color: rgb(23, 160, 220);">Información día 3:</span></h4>
+        </th>
+      </tr>
+      <tr>
+        <th>
+          {{miformulario.Celulas_3|as_crispy_field}}
+        </th>
+        <th>
+          {{miformulario.Fragmentos_3|as_crispy_field}}
+        </th>
+        <th>
+          {{miformulario.Simetria_3|as_crispy_field}}
+        </th>
+      </tr>
+      
+      <tr>
+        <th></th>
+        <th>
+          <button type="submit" class="btn btn-success" style="place-items: center;">Enviar</button>
+        </th>
+        <th></th>
+      </tr>
+    </table>
+
+  {% if "valido1" in request.GET %}
+
+    <p style="color: green;">Información enviada correctamente</p>
+    <p style="color: green;">Se formará Blastocisto</p>
+
+  {% endif %}
+
+  {% if "valido0" in request.GET %}
+
+    <p style="color: white;">Información enviada correctamente</p>
+    <p style="color: red;">No se formará Blastocisto</p>
+  {% endif %}
+    <!-- {{miformulario|crispy}} -->
+    <!-- <input type="submit" value="Enviar" style = "width:150px"> -->
+  </form>
+</div>
+
+{% if  imagenes.imagen_3 != None %}
+<div class="contenedorFormulario">
+  <table style="color: white; margin: 20px auto;">
+    <tr>
+      <th>Imagen día 2:</th>
+      <th></th>
+      <th>Imagen día 3:</th>
+      <th></th>
+    </tr>
+    <tr>
+      <th colspan="2">
+        {% if imagenes.imagen_2 %}
+        <img src = "{{imagenes.imagen_2}}" alt="" style="width: 100%;">
+        {% endif %}
+      </th>
+      <th colspan="2">
+        {% if imagenes.imagen_3 %}
+        <img src = "{{imagenes.imagen_3}}" alt="" style="width: 100%;">
+        {% endif %}
+      </th>
+    </tr>
+  </table>
+</div>
+
+{% endif %}
+
+{% if  imagenes.imagen_3 == None %}
+
+<div class = "contenedorFormulario">
+  <form action="" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <table style="color: white; margin: 20px auto;">
+      <tr>
+        <th>{{imageform.imagen_2|as_crispy_field}}</th>
+      </tr>
+      <tr>
+        <th>{{imageform.imagen_3|as_crispy_field}}</th>
+      </tr>
+      <tr>
+        <th><button type="submit" class="btn btn-success">Enviar</button></th>
+      </tr>
+    </table>
+    {% if imagen2 in request.GET %}
+      {% if imagen3 in request.GET %}
+        <p style="color: white;">Se contaron {{request.GET.keys}} celulas</p>
+      {% endif %}
+    {% endif %}
+    <!-- <input type="submit" value="Enviar" style = "width:150px"> -->
+  </form>
+</div>
+
+{% endif %}
+
+{% endblock %}

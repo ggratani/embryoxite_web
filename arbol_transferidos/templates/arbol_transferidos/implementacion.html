@@ -1,0 +1,71 @@
+{% extends "arbol_blastocisto/base.html" %}
+
+{% load static %}
+
+{% load crispy_forms_tags %}
+
+{% block content3 %}
+
+<div class = "contenedorFormulario">
+  <!-- <style>
+    table, th, td {
+      border:1px solid black;
+    }
+  </style> -->
+  
+  <form action="" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <table style="color: white; margin: 20px auto;">
+      <tr>
+        <th colspan="3">
+          <h3><span class="section-heading-lower" style="background-color: rgb(23, 160, 220); border-radius: 5px;">Ingresar datos:</span></h3>
+        </th>
+      </tr>
+      <tr>
+        <th>
+          {{miformulario.MCI|as_crispy_field}}
+        </th>
+        <th>
+          {{miformulario.Trafectodermo|as_crispy_field}}
+        </th>
+        <th>
+          {{miformulario.GradoExpancion|as_crispy_field}}
+        </th>
+      </tr>
+            
+      <tr>
+        <th></th>
+        <th>
+          <button type="submit" class="btn btn-success" style="place-items: center;">Enviar</button>
+        </th>
+        <th></th>
+      </tr>
+    </table>
+
+  </form>
+</div>
+
+{% if  imagenes.imagen_3 != None %}
+<div class="contenedorFormulario">
+  <table style="color: white; margin: 20px auto;">
+    <tr>
+      <th>Imagen día 2:</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+    <tr>
+      <th colspan="2">
+        {% if imagenes.imagen_2 %}
+        <img src = "{{imagenes.imagen_2}}" alt="" style="width: 100%;">
+        {% endif %}
+      </th>
+      <th colspan="2">
+      </th>
+    </tr>
+  </table>
+</div>
+
+{% endif %}
+
+{% endblock %}

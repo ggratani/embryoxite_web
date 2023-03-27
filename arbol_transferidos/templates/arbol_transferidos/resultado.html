@@ -1,0 +1,42 @@
+{% extends "arbol_blastocisto/base.html" %}
+
+{% load static %}
+
+{% load crispy_forms_tags %}
+
+{% block content3 %}
+
+<div class = "contenedorFormulario" style="margin-bottom: 30px; margin-top: 30px; width: 70%;">
+  <!-- <style>
+    table, th, td {
+      border:1px solid black;
+    }
+  </style> -->
+  <h1 style="color: white;">Resultado</h1>
+  <div class="contenedorAnalisis">
+    {% if resultado == 1 %}
+
+      <p style="color: green;">Información enviada correctamente</p>
+      <p style="color: green;">Embrión potencialmente implantable</p>
+
+    {% endif %}
+
+    {% if resultado == 0 %}
+
+      <p style="color: green;">Información enviada correctamente</p>
+      <p style="color: red;">Se recomienda no implantar el embrión</p>
+    {% endif %}
+  </div>
+  <div class="contenedorAnalisis">
+    {% if exp %}
+      {{ exp|safe }}
+    {% endif %}
+  </div>
+  <!-- <div class="contenedorAnalisis">
+    {% if exp2 %}
+      {{ exp2 }}
+    {% endif %}
+  </div> -->
+</div>
+
+{% endblock %}
