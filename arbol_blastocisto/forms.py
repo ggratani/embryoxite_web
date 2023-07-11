@@ -1,7 +1,7 @@
 from django import forms 
 
 class FormularioEntrada(forms.Form):
-    Edad = forms.IntegerField(label="Edad del paciente", required=True)
+    Edad = forms.IntegerField(label="Edad del óvulo", required=True)
     Celulas_2 = forms.IntegerField(label="Cantidad de células", required=True)
     Fragmentos_2 = forms.IntegerField(label="% de fragmentación", required=True)
     Simetria_2 = forms.BooleanField(label="Presenta simetría?", required=False)

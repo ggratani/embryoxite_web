@@ -27,7 +27,7 @@ urlpatterns = [
     path('carro/', include('carro.urls')),
     path('autenticacion/', include('autenticacion.urls')),
     path('pedidos/', include('pedidos.urls')),
-    path('generarpdf/', include('pdfgenerator.urls')),
+    path('analisis/', include('gestionCiclosPacientes.urls')),
     path('modelos/arbol_blastocisto/', include('arbol_blastocisto.urls')),
     path('modelos/arbol_transferidos/', include('arbol_transferidos.urls')),
 ]

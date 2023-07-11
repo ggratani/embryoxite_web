@@ -51,7 +51,7 @@ def arbol_transferidos_implementación_resultado(request):
     model = load(r'C:\Users\gasto\Documents\Django\Embryoxite\arbol_transferidos\modelos\arbol_decision.joblib')
     resultado =  model.predict([[GradoExpancion, MCI, Trafectodermo]])
 
-    with open(r'C:\Users\gasto\Documents\Django\Embryoxite\arbol_transferidos\modelos\lime_model.pkl', 'rb') as file:
+    with open(r'C:\Users\gasto\Documents\Django\Embryoxite\arbol_transferidos\modelos\lime_model_transferencia.pkl', 'rb') as file:
         explainer = pickle.load(file)
     list = [GradoExpancion, MCI, Trafectodermo]
     int_list = np.array([int(elem) for elem in list])

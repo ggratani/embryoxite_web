@@ -44,8 +44,8 @@ p {
 }
 
 .page-section {
-  margin-top: 5rem;
-  margin-bottom: 5rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 .section-heading {
@@ -56,7 +56,7 @@ p {
   display: block;
   font-size: 1rem;
   font-weight: 800;
-  padding-bottom:.5rem;
+  padding-bottom:.2rem;
 
 }
 
@@ -287,14 +287,15 @@ ul.errorlist{
   text-decoration: none;
 }
 
-.contenedorFormulario{
-  background-color: rgba(23, 144, 196);
-  width:70%;
+.contenedorFormulario {
+  background-color: rgba(23, 144, 196, 0.8); /* Ajusta la opacidad del color de fondo */
+  width: 70%;
   margin: 10px auto;
-  border-radius: 5px;
-  padding: 1px 0px;
-  
+  border-radius: 10px; /* Aumenta el radio para una apariencia más redondeada */
+  padding: 10px; /* Aumenta el espacio interno para un mayor espacio entre el contenido y el borde */
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Agrega una sombra suave al contenedor */
 }
+
 
 .contenedorAnalisis{
   background-color: rgba(255, 255, 255);
@@ -304,3 +305,22 @@ ul.errorlist{
   padding: 1px 0px;
   
 }
+
+.container-card {
+  background-color: rgb(8, 8, 62);
+  border: 1px solid grey;
+  border-radius: 5px;
+  padding: 25px;
+  cursor: pointer;
+  -moz-osx-front-smoothing: grayscale;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  transition: transform 0.25s ease-out;
+  width: 100%;
+  margin-right: 5px; /* Agrega un margen derecho entre los contenedores */
+}
+
+.container-card:hover {
+  transform: scale(1.05);
+}
+

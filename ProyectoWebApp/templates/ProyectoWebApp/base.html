@@ -27,7 +27,7 @@
         {% if user.is_authenticated %}
           Hola {{user.username}}  &nbsp;&nbsp; <a href="{% url 'cerrar_sesion' %}" style="color:white">Cerrar sesion</a>
         {% else %}
-          <a href="{% url 'logear' %}" style="color:white">Login</a> &nbsp;&nbsp; <a href="{% url 'Autenticacion' %}" style="color:white">Registrate</a>
+          <a href="{% url 'logear' %}" style="color:white">Login</a> &nbsp;&nbsp; <a href="{% url 'Autenticacion' %}" style="color:white">Sign up</a>
         {% endif %}
     </div>
 
@@ -52,11 +52,11 @@
           </li>
 
           {% if request.user.is_authenticated %}
-          <li class="nav-item {% if request.path == '/generarpdf/' %}active{% endif %} px-lg-4">
-            <a class="nav-link text-uppercase text-expanded" href="{% url 'generar_pdf' %}">Análisis</a>
+          <li class="nav-item {% if request.path|slice:':13' == '/generarpdf/' %}active{% endif %} px-lg-4">
+            <a class="nav-link text-uppercase text-expanded" href="{% url 'Analisis' %}">Análisis</a>
           </li>
           <li class="nav-item {% if request.path|slice:':9' == '/modelos/' %}active{% endif %} px-lg-4">
-            <a class="nav-link text-uppercase text-expanded" href="{% url 'modelos' %}">Modelo</a>
+            <a class="nav-link text-uppercase text-expanded" href="{% url 'modelos' %}">Modelos</a>
           </li>
          {% endif %}
           <li class="nav-item {% if request.path == '/contacto/' %}active{% endif %} px-lg-4">

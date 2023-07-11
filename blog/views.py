@@ -4,6 +4,8 @@ from blog.models import Post, Categoria
 
 def blog(request):
     posts = Post.objects.all()
+    print("El post es este")
+    print(posts)
     return render(request, "blog/blog.html", {"posts":posts})
 
 def categoria(request, categoria_id):

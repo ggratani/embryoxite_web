@@ -1,0 +1,40 @@
+{% extends "ProyectoWebApp/base.html" %}
+
+{% load static %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<div class = "contenedorFormulario" style="margin-bottom: 30px; margin-top: 30px; width: 70%;">
+  <!-- <style>
+    table, th, td {
+      border:1px solid black;
+    }
+  </style> -->
+  <h1 style="color: white; margin-left: 380px;">Detalle de la predicción</h1>
+  <div class="contenedorAnalisis">
+    {% if resultado == 1 %}
+
+      <p style="color: green;">Se formará Blastocisto</p>
+
+    {% endif %}
+
+    {% if resultado == 0 %}
+
+      <p style="color: red;">No se formará Blastocisto</p>
+    {% endif %}
+  </div>
+  <div class="contenedorAnalisis">
+    {% if exp %}
+      {{ exp|safe }}
+    {% endif %}
+  </div>
+  <div class="contenedorAnalisis">
+    {% if exp2 %}
+      {{ exp2 }}
+    {% endif %}
+  </div>
+</div>
+
+{% endblock %}

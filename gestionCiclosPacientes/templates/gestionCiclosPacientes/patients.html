@@ -1,0 +1,62 @@
+<!-- patients.html -->
+{% extends 'ProyectoWebApp/base.html' %}
+
+{% block content %}
+
+<style>
+    .dataframe {
+      background-color: #f5f5f5;
+      border: 1px solid #ddd;
+      padding: 10px;
+      margin-bottom: 20px;
+    }
+    
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    
+    th, td {
+      padding: 8px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+    
+    th {
+      background-color: #f2f2f2;
+    }
+    </style>
+
+  <div class = "contenedorFormulario">
+    <div style="text-align: right; margin-right: 50px; color: white; margin-top: 30px;"> 
+        <a href="{% url 'cerrar_sesion' %}" style="color:white"><button type="submit" class="btn btn-success" style="place-items: center;">Generar reporte</button> </a>
+    </div>
+  <h1 style="color: white;">Listado de Pacientes</h1>
+  <div class="dataframe">
+    <table>
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th>Edad</th>
+          <th>Email</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for patient in patients %}
+          <tr>
+            <td>{{ patient.nombre }}</td>
+            <td>{{ patient.apellido }}</td>
+            <td>{{ patient.edad }}</td>
+            <td>{{ patient.email }}</td>
+            <td>
+              <a href="{% url 'ciclo_detail' patient.id %}">Ver detalle</a>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

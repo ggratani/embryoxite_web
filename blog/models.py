@@ -15,9 +15,12 @@ class Categoria(models.Model):
         return self.nombre
 
 class Post(models.Model):
-    titulo = models.CharField(max_length=50)
-    contenido = models.CharField(max_length=50)
+    titulo = models.CharField(max_length=500)
+    contenido = models.CharField(max_length=500)
     imagen = models.ImageField(upload_to = 'blog', null=True, blank=True) 
+    autores = models.CharField(max_length = 50)
+    doi = models.CharField(max_length = 50)
+    fechaPublicacion = models.DateTimeField()
     autor = models.ForeignKey(User, on_delete=models.CASCADE) #varios post pertenecen a un solo usuario, si se elimina usuario se eliminan todos los posts
     categorias = models.ManyToManyField(Categoria) # un post puede pertenecer a varias categorías
     created = models.DateTimeField(auto_now_add=True)

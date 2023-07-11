@@ -13,9 +13,9 @@ def contacto(request):
             nombre=request.POST.get("nombre")
             email=request.POST.get("email")
             contenido=request.POST.get("contenido")
-
-            email = EmailMessage("Mensaje desde app Django", "El usuario {} con la direccion {} escribe: \n\n {}".format(nombre,email, contenido),
-            "",["gastongratani@hotmail.com"], reply_to=[email])
+            print(email)
+            email = EmailMessage("Mensaje desde app Embryoxite", "El usuario {} con la direccion {} escribe: \n\n {}".format(nombre,email, contenido),
+            "",[email], reply_to=["gastongratani@hotmail.com"])
 
             try:
                 email.send()
