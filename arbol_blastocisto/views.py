@@ -131,10 +131,10 @@ def arbol_blastocisto_implementación_resultado(request):
     print(Simetria_3)
     print(Ovulo_donante)
     print(Semen_donante)
-    model = load(r'C:\Users\gasto\Documents\Django\Embryoxite\arbol_blastocisto\modelos_predictivos\arbol_profundidad5.joblib')
+    model = load(r'C:\Users\gasto\Documents\Django\Embryoxite\arbol_blastocisto\modelos_predictivos\modelo_blastocisto_sv.joblib')
     resultado =  model.predict([[Edad,Celulas_2,Celulas_3,Fragmentos_2,Fragmentos_3,Simetria_2,Simetria_3]])
 
-    with open(r'C:\Users\gasto\Documents\Django\Embryoxite\arbol_blastocisto\modelos_predictivos\lime_model_blasto.pkl', 'rb') as file:
+    with open(r'C:\Users\gasto\Documents\Django\Embryoxite\arbol_blastocisto\modelos_predictivos\lime_model.pkl', 'rb') as file:
         explainer = pickle.load(file)
     list = [Edad,Celulas_2,Celulas_3,Fragmentos_2,Fragmentos_3,Simetria_2,Simetria_3]
     int_list = np.array([float(elem) for elem in list])
